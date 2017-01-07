@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RefreshScope
-public class DefaultController {
+public class ApplicationController {
 
 	@Autowired
 	private Environment environment;
