@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: spring-cloud-config-client
+    cloud:
+        config:
+            uri:
+                http://localhost:55555
+            # Загрузка будет сразу же остановлена если нет соединения с config-сервером
+            fail-fast: true

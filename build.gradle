@@ -1,0 +1,45 @@
+group 'org.sf.cloud'
+version '1.0-SNAPSHOT'
+
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+	mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR3'
+	}
+}
+
+dependencies {
+	compile 'org.springframework.cloud:spring-cloud-starter-config'
+
+	// Зависимость для включения веб
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// Зависимость для включения функциональности обновления конфигурации клиента
+	compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// Зависимость для включения функциональности повторного соединения с сервером конфигураций
+	compile 'org.springframework.boot:spring-boot-starter-aop'
+	compile 'org.springframework.retry:spring-retry'
+}
