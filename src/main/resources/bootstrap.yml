@@ -1,6 +1,8 @@
 spring:
     application:
         name: spring-cloud-config-client
+    profiles:
+        active: test-profile
     cloud:
         config:
             uri:
