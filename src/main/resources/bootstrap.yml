@@ -6,6 +6,6 @@ spring:
     cloud:
         config:
             uri:
-                http://localhost:55555
+                ${SPRING_CONFIG_URI:http://localhost:55555}
             # Загрузка будет сразу же остановлена если нет соединения с config-сервером
             fail-fast: true
